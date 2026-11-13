@@ -1,0 +1,14 @@
+---
+description: Keep Project Rise a combat-only Elden Ring feel demo
+alwaysApply: true
+---
+
+# Combat demo scope
+
+This repo exists to validate Elden Ring-like ARPG combat. Engine: Godot 4.7.2 at `D:\godot\Godot_v4.7.2-stable_win64.exe`, GDScript.
+
+Ship an arena, one player knight, one enemy knight, and a debug HUD. Do not add open world, story, inventory, builds, multiplayer, mounts, or status-effect RPG systems.
+
+Feel pillars that must stay visible in play: attack commitment, stamina, dodge i-frames, lock-on spacing, readable telegraphs, stance break, hyperarmor on heavy attacks.
+
+Change numbers in `docs/design/` before inventing a new system. Placeholder art is enough when silhouettes, colors, and timing are readable.

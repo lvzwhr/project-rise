@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Material" path="res://assets/materials/active_yellow.tres" id="mat"]
+
+[sub_resource type="BoxMesh" id="line"]
+size = Vector3(0.08, 0.08, 2.2)
+
+[node name="ThrustLine" type="Node3D"]
+
+[node name="Line" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
+cast_shadow = 0
+mesh = SubResource("line")
+surface_material_override/0 = ExtResource("mat")

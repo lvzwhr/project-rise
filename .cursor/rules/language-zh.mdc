@@ -1,0 +1,19 @@
+---
+description: Human-readable docs are Chinese; keep English for locked names
+alwaysApply: true
+---
+
+# 文档语言
+
+给人读的文件用**中文**写：`docs/`、`README.md`、`AGENTS.md`、`game/assets/README.md`、工程说明、验收清单。
+
+下列内容保留英文，不要译成汉字：
+
+- 动画事件：`hit_on` `hit_off` `iframe_on` `iframe_off` `hyperarmor_on` `hyperarmor_off` `can_buffer`
+- 状态与招式名：`Idle` `Light1` `Sweep` `StanceBroken` 等
+- 战斗术语：lock-on、i-frame、hitbox、hurtbox、stamina、stance、hyperarmor、buffer、startup / active / recovery、Debug HUD
+- 路径、节点、Godot / GDScript API、颜色 hex、资源名
+
+代码标识符、场景节点、文件名继续用英文。GDScript 注释可用中文。
+
+改已有文档时只改语言，不改数值、帧数、事件名。

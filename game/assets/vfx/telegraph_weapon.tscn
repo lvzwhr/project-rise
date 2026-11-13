@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Material" path="res://assets/materials/telegraph_red.tres" id="mat"]
+
+[sub_resource type="BoxMesh" id="blade"]
+size = Vector3(0.1, 1.2, 0.06)
+
+[node name="TelegraphWeapon" type="Node3D"]
+
+[node name="Glow" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("blade")
+surface_material_override/0 = ExtResource("mat")

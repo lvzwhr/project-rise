@@ -1,0 +1,30 @@
+[gd_resource type="AnimationLibrary" load_steps=13 format=3]
+
+[ext_resource type="Animation" path="res://assets/animation/enemy/Idle.tres" id="clip_1"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/Walk.tres" id="clip_2"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/Sweep.tres" id="clip_3"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/Thrust.tres" id="clip_4"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/Slam.tres" id="clip_5"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/DoubleSlash.tres" id="clip_6"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/DoubleSlash1.tres" id="clip_7"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/DoubleSlash2.tres" id="clip_8"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/StanceBroken.tres" id="clip_9"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/Wakeup.tres" id="clip_10"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/Hitstun.tres" id="clip_11"]
+[ext_resource type="Animation" path="res://assets/animation/enemy/Death.tres" id="clip_12"]
+
+[resource]
+_data = {
+&"Idle": ExtResource("clip_1"),
+&"Walk": ExtResource("clip_2"),
+&"Sweep": ExtResource("clip_3"),
+&"Thrust": ExtResource("clip_4"),
+&"Slam": ExtResource("clip_5"),
+&"DoubleSlash": ExtResource("clip_6"),
+&"DoubleSlash1": ExtResource("clip_7"),
+&"DoubleSlash2": ExtResource("clip_8"),
+&"StanceBroken": ExtResource("clip_9"),
+&"Wakeup": ExtResource("clip_10"),
+&"Hitstun": ExtResource("clip_11"),
+&"Death": ExtResource("clip_12")
+}

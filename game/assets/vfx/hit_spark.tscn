@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Material" path="res://assets/materials/vfx_spark.tres" id="mat"]
+
+[sub_resource type="ParticleProcessMaterial" id="ppm"]
+direction = Vector3(0, 1, 0)
+spread = 70.0
+initial_velocity_min = 1.6
+initial_velocity_max = 3.8
+gravity = Vector3(0, -10, 0)
+scale_min = 0.04
+scale_max = 0.08
+color = Color(1, 0.92, 0.55, 1)
+
+[sub_resource type="QuadMesh" id="quad"]
+material = ExtResource("mat")
+size = Vector2(0.08, 0.08)
+
+[node name="HitSpark" type="GPUParticles3D"]
+emitting = false
+amount = 14
+lifetime = 0.13
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource("ppm")
+draw_pass_1 = SubResource("quad")

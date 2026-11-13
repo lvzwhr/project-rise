@@ -1,0 +1,211 @@
+[gd_scene load_steps=19 format=3]
+
+[ext_resource type="Material" path="res://assets/materials/enemy_body.tres" id="mat_body"]
+[ext_resource type="Material" path="res://assets/materials/enemy_armor.tres" id="mat_armor"]
+[ext_resource type="Material" path="res://assets/materials/enemy_weapon.tres" id="mat_weapon"]
+[ext_resource type="Material" path="res://assets/materials/telegraph_red.tres" id="mat_tel"]
+[ext_resource type="Material" path="res://assets/materials/active_yellow.tres" id="mat_act"]
+[ext_resource type="Material" path="res://assets/materials/punish_green.tres" id="mat_pun"]
+[ext_resource type="Material" path="res://assets/materials/hyperarmor_debug_orange.tres" id="mat_hyper"]
+[ext_resource type="AnimationLibrary" path="res://assets/animation/enemy_combat.tres" id="lib"]
+[ext_resource type="Material" path="res://assets/materials/enemy_pauldron.tres" id="mat_paul"]
+
+[sub_resource type="CapsuleMesh" id="mesh_torso"]
+radius = 0.28
+height = 0.7
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id="mesh_head"]
+radius = 0.145
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CapsuleMesh" id="mesh_arm"]
+radius = 0.08
+height = 0.36
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CapsuleMesh" id="mesh_fore"]
+radius = 0.072
+height = 0.306
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CapsuleMesh" id="mesh_thigh"]
+radius = 0.1
+height = 0.46
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CapsuleMesh" id="mesh_shin"]
+radius = 0.09
+height = 0.44
+radial_segments = 8
+rings = 4
+
+[sub_resource type="BoxMesh" id="mesh_weapon"]
+size = Vector3(0.09, 1.25, 0.0495)
+
+[sub_resource type="BoxMesh" id="mesh_glow"]
+size = Vector3(0.1215, 1.3, 0.0765)
+
+[sub_resource type="CapsuleMesh" id="mesh_paul"]
+radius = 0.14
+height = 0.28
+radial_segments = 8
+rings = 4
+
+[node name="EnemyKnightVisual" type="Node3D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("lib")
+}
+
+[node name="Vfx_Chest" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36, 0)
+
+[node name="Vfx_Feet" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+
+[node name="Hip" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98, 0)
+
+[node name="Mesh_Pelvis" type="MeshInstance3D" parent="Hip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.08, 0)
+mesh = SubResource("mesh_torso")
+surface_material_override/0 = ExtResource("mat_armor")
+
+[node name="Torso" type="Node3D" parent="Hip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0)
+
+[node name="Mesh_Torso" type="MeshInstance3D" parent="Hip/Torso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("mesh_torso")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="Head" type="Node3D" parent="Hip/Torso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.385, 0)
+
+[node name="Mesh_Head" type="MeshInstance3D" parent="Hip/Torso/Head"]
+mesh = SubResource("mesh_head")
+surface_material_override/0 = ExtResource("mat_armor")
+
+[node name="ShoulderL" type="Node3D" parent="Hip/Torso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34, 0.16, 0)
+
+[node name="UpperArmL" type="Node3D" parent="Hip/Torso/ShoulderL"]
+
+[node name="Mesh_UpperArmL" type="MeshInstance3D" parent="Hip/Torso/ShoulderL/UpperArmL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.162, 0)
+mesh = SubResource("mesh_arm")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="ForeArmL" type="Node3D" parent="Hip/Torso/ShoulderL/UpperArmL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.324, 0)
+
+[node name="Mesh_ForeArmL" type="MeshInstance3D" parent="Hip/Torso/ShoulderL/UpperArmL/ForeArmL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1368, 0)
+mesh = SubResource("mesh_fore")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="Pauldron" type="MeshInstance3D" parent="Hip/Torso/ShoulderL"]
+transform = Transform3D(0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, -0.04, 0.04, 0.02)
+mesh = SubResource("mesh_paul")
+surface_material_override/0 = ExtResource("mat_paul")
+
+[node name="ShoulderR" type="Node3D" parent="Hip/Torso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34, 0.16, 0)
+
+[node name="UpperArmR" type="Node3D" parent="Hip/Torso/ShoulderR"]
+
+[node name="Mesh_UpperArmR" type="MeshInstance3D" parent="Hip/Torso/ShoulderR/UpperArmR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.162, 0)
+mesh = SubResource("mesh_arm")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="ForeArmR" type="Node3D" parent="Hip/Torso/ShoulderR/UpperArmR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.324, 0)
+
+[node name="Mesh_ForeArmR" type="MeshInstance3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1368, 0)
+mesh = SubResource("mesh_fore")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="HandR" type="Node3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
+
+[node name="WeaponPivot" type="Node3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR/HandR"]
+transform = Transform3D(0.978148, -0.200827, 0.053812, 0.207912, 0.944818, -0.253163, 0, 0.258819, 0.965926, 0.02, 0.02, 0.04)
+
+[node name="Weapon" type="MeshInstance3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR/HandR/WeaponPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("mesh_weapon")
+surface_material_override/0 = ExtResource("mat_weapon")
+
+[node name="TelegraphGlow" type="MeshInstance3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR/HandR/WeaponPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("mesh_glow")
+surface_material_override/0 = ExtResource("mat_tel")
+visible = false
+
+[node name="ActiveGlow" type="MeshInstance3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR/HandR/WeaponPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("mesh_glow")
+surface_material_override/0 = ExtResource("mat_act")
+visible = false
+
+[node name="PunishGlow" type="MeshInstance3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR/HandR/WeaponPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("mesh_glow")
+surface_material_override/0 = ExtResource("mat_pun")
+visible = false
+
+[node name="Vfx_Blade" type="Marker3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR/HandR/WeaponPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="Vfx_Tip" type="Marker3D" parent="Hip/Torso/ShoulderR/UpperArmR/ForeArmR/HandR/WeaponPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.225, 0)
+
+[node name="LegL" type="Node3D" parent="Hip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13, -0.12, 0)
+
+[node name="Mesh_ThighL" type="MeshInstance3D" parent="Hip/LegL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("mesh_thigh")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="ShinL" type="Node3D" parent="Hip/LegL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42, 0)
+
+[node name="Mesh_ShinL" type="MeshInstance3D" parent="Hip/LegL/ShinL"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+mesh = SubResource("mesh_shin")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="LegR" type="Node3D" parent="Hip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13, -0.12, 0)
+
+[node name="Mesh_ThighR" type="MeshInstance3D" parent="Hip/LegR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh = SubResource("mesh_thigh")
+surface_material_override/0 = ExtResource("mat_body")
+
+[node name="ShinR" type="Node3D" parent="Hip/LegR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42, 0)
+
+[node name="Mesh_ShinR" type="MeshInstance3D" parent="Hip/LegR/ShinR"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
+mesh = SubResource("mesh_shin")
+surface_material_override/0 = ExtResource("mat_body")
+
+
+[node name="Debug_Hyperarmor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.18, 0, 0, 0, 1.08, 0, 0, 0, 1.18, 0, 0.9, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("mesh_torso")
+surface_material_override/0 = ExtResource("mat_hyper")
+

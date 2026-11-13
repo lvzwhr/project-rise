@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "EnemyArmor"
+disable_receive_shadows = false
+albedo_color = Color(0.22, 0.18, 0.16, 1)
+metallic = 0.55
+roughness = 0.42

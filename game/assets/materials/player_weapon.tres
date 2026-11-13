@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[resource]
+resource_name = "PlayerWeapon"
+disable_receive_shadows = false
+albedo_color = Color(0.72, 0.76, 0.82, 1)
+metallic = 0.85
+roughness = 0.28

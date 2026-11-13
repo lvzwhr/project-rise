@@ -1,0 +1,58 @@
+[gd_resource type="AnimationLibrary" load_steps=27 format=3]
+
+[ext_resource type="Animation" path="res://assets/animation/player/Idle.tres" id="clip_1"]
+[ext_resource type="Animation" path="res://assets/animation/player/Walk.tres" id="clip_2"]
+[ext_resource type="Animation" path="res://assets/animation/player/Run.tres" id="clip_3"]
+[ext_resource type="Animation" path="res://assets/animation/player/RunStumble.tres" id="clip_4"]
+[ext_resource type="Animation" path="res://assets/animation/player/Light1.tres" id="clip_5"]
+[ext_resource type="Animation" path="res://assets/animation/player/Light2.tres" id="clip_6"]
+[ext_resource type="Animation" path="res://assets/animation/player/Light3.tres" id="clip_7"]
+[ext_resource type="Animation" path="res://assets/animation/player/Heavy.tres" id="clip_8"]
+[ext_resource type="Animation" path="res://assets/animation/player/ChargedHeavy_Charge.tres" id="clip_9"]
+[ext_resource type="Animation" path="res://assets/animation/player/ChargedHeavy_Release.tres" id="clip_10"]
+[ext_resource type="Animation" path="res://assets/animation/player/Jump.tres" id="clip_11"]
+[ext_resource type="Animation" path="res://assets/animation/player/JumpAttack.tres" id="clip_12"]
+[ext_resource type="Animation" path="res://assets/animation/player/RunningAttack.tres" id="clip_13"]
+[ext_resource type="Animation" path="res://assets/animation/player/DodgeRoll.tres" id="clip_14"]
+[ext_resource type="Animation" path="res://assets/animation/player/Guard_Raise.tres" id="clip_15"]
+[ext_resource type="Animation" path="res://assets/animation/player/Guard_Hold.tres" id="clip_16"]
+[ext_resource type="Animation" path="res://assets/animation/player/Guard_Lower.tres" id="clip_17"]
+[ext_resource type="Animation" path="res://assets/animation/player/GuardHit.tres" id="clip_18"]
+[ext_resource type="Animation" path="res://assets/animation/player/GuardBreak.tres" id="clip_19"]
+[ext_resource type="Animation" path="res://assets/animation/player/Riposte.tres" id="clip_20"]
+[ext_resource type="Animation" path="res://assets/animation/player/Exhaust.tres" id="clip_21"]
+[ext_resource type="Animation" path="res://assets/animation/player/Hitstun_Light.tres" id="clip_22"]
+[ext_resource type="Animation" path="res://assets/animation/player/Hitstun_Heavy.tres" id="clip_23"]
+[ext_resource type="Animation" path="res://assets/animation/player/Hitstun_Slam.tres" id="clip_24"]
+[ext_resource type="Animation" path="res://assets/animation/player/Hitstun_SlamGetup.tres" id="clip_25"]
+[ext_resource type="Animation" path="res://assets/animation/player/Death.tres" id="clip_26"]
+
+[resource]
+_data = {
+&"Idle": ExtResource("clip_1"),
+&"Walk": ExtResource("clip_2"),
+&"Run": ExtResource("clip_3"),
+&"RunStumble": ExtResource("clip_4"),
+&"Light1": ExtResource("clip_5"),
+&"Light2": ExtResource("clip_6"),
+&"Light3": ExtResource("clip_7"),
+&"Heavy": ExtResource("clip_8"),
+&"ChargedHeavy_Charge": ExtResource("clip_9"),
+&"ChargedHeavy_Release": ExtResource("clip_10"),
+&"Jump": ExtResource("clip_11"),
+&"JumpAttack": ExtResource("clip_12"),
+&"RunningAttack": ExtResource("clip_13"),
+&"DodgeRoll": ExtResource("clip_14"),
+&"Guard_Raise": ExtResource("clip_15"),
+&"Guard_Hold": ExtResource("clip_16"),
+&"Guard_Lower": ExtResource("clip_17"),
+&"GuardHit": ExtResource("clip_18"),
+&"GuardBreak": ExtResource("clip_19"),
+&"Riposte": ExtResource("clip_20"),
+&"Exhaust": ExtResource("clip_21"),
+&"Hitstun_Light": ExtResource("clip_22"),
+&"Hitstun_Heavy": ExtResource("clip_23"),
+&"Hitstun_Slam": ExtResource("clip_24"),
+&"Hitstun_SlamGetup": ExtResource("clip_25"),
+&"Death": ExtResource("clip_26")
+}

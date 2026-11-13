@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Material" path="res://assets/materials/slam_circle.tres" id="mat_fill"]
+[ext_resource type="Material" path="res://assets/materials/slam_circle_ring.tres" id="mat_ring"]
+
+[sub_resource type="CylinderMesh" id="cyl"]
+top_radius = 1.6
+bottom_radius = 1.6
+height = 0.03
+radial_segments = 28
+rings = 1
+
+[sub_resource type="TorusMesh" id="torus"]
+inner_radius = 1.52
+outer_radius = 1.6
+rings = 24
+ring_segments = 8
+
+[sub_resource type="Animation" id="anim_pulse"]
+resource_name = "Pulse"
+length = 0.5
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ring:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.55), Color(1, 1, 1, 1), Color(1, 1, 1, 0.55)]
+}
+
+[sub_resource type="AnimationLibrary" id="lib"]
+_data = {
+&"Pulse": SubResource("anim_pulse")
+}
+
+[node name="SlamFloorCircle" type="Node3D"]
+
+[node name="Fill" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+cast_shadow = 0
+mesh = SubResource("cyl")
+surface_material_override/0 = ExtResource("mat_fill")
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035, 0)
+cast_shadow = 0
+mesh = SubResource("torus")
+surface_material_override/0 = ExtResource("mat_ring")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("lib")
+}
+autoplay = "Pulse"
